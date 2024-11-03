@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/rsz_proweber_md_abdullah_sohag.png" type="image/x-icon">
+    
+    <title>cal Culator</title>
+    
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!-- -/ fonts-->
+    
+    <!-- <script src="js/94ecb70494.js"></script> -->
+    
+    <!-- style -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- -/ style -->
+ 
+    <!-- js -->
+     <script src="./js/vue.global.js"></script>
+    <!-- -/js -->
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme.color" content="#232d44">
+    <link rel="apple-touch-icon" href="./assets/images.svg">
+    <!-- -/PWA -->
+</head>
+
+
+
+<body class="theme-bg d-flex justify-content-center align-items-center">
+
+   
+    <div class="calculator-body d-flex flex-column gap-4" id="calculator">
+
+       <!-- display -->
+       <div class="calculator-display w-100 rounded text-end d-flex flex-column justify-content-center p-2">
+
+        <input type="text" class="fs-24 text-end bg-transparent border-0 pe-2" v-model="displayInput" id="input" @click="keyDisable" @focus="keyDisable">
+        
+        <h6 class="fs-26" v-if="ans" >{{ans}}</h6>
+       </div>
+       <!-- -/display -->
+
+        <!-- buttons -->
+        <div class="button-section grid-container p-3">
+            <button class="keybtn p-2 fs-16 fw-bold" v-for="(e,i) in btns" :key="i" :class="e.btnCls" @click='butonHandel(e.btnKey)'  >{{e.btnKey}}</button>
+        </div>
+        <!-- -/ buttons -->
+
+    </div>
+  
+    <!--js links-->
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+    <!-- -/js links-->
+</body>
+</html>
