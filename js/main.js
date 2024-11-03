@@ -19,20 +19,6 @@ if ('serviceWorker' in navigator) {
 // -/PWA script
 
 
-window.addEventListener('load', () => {
-    const status = navigator.onLine;
-    if (!status) {
-        alert('you are off line. plese check your network');
-    }
-  });
-
-  window.addEventListener('offline', (e) => {
-    alert('you are off line. plese check your network');
-  });
-  
-  window.addEventListener('online', (e) => {
-    console.log('online');
-  });
   
 
 Vue.createApp({
@@ -96,6 +82,7 @@ Vue.createApp({
         ],
         ans:'',
         displayInput:'',
+        regexMob:/Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i,
        }    
          },
     methods:{
@@ -127,9 +114,16 @@ Vue.createApp({
           },
           
           keyDisable(e){
-                e.disabled
                 e.preventDefault();
                 e.stopPropagation();
+          },
+
+        hasTouchSupport() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+          },
+
+          isMobile() {
+            return this.regexMob.test(navigator.userAgent)
           }
                   
     },
@@ -143,7 +137,30 @@ Vue.createApp({
     },
     computed:{
                     
-      }           
+      },
+    mounted(){
+        // dectade mobile or pc
+        let theInputText = document.querySelector('#input')
+        theInputText.disabled =  this.isMobile() || this.hasTouchSupport()
+        // dectade mobile or pc
+        
+        // online detaced
+        window.addEventListener('offline', (e) => {
+            alert('you are off line. plese check your network');
+          });
+          
+          window.addEventListener('online', (e) => {
+            console.log('online');
+          });
+
+          window.addEventListener('load', () => {
+            const status = navigator.onLine;
+            if (!status) {
+                alert('you are off line. plese check your network');
+            }
+          });
+        //  -/ online detaced
+    }
     
     }).mount('#calculator')
 
