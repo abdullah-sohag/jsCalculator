@@ -19,6 +19,22 @@ if ('serviceWorker' in navigator) {
 // -/PWA script
 
 
+window.addEventListener('load', () => {
+    const status = navigator.onLine;
+    if (!status) {
+        alert('you are off line. plese check your network');
+    }
+  });
+
+  window.addEventListener('offline', (e) => {
+    alert('you are off line. plese check your network');
+  });
+  
+  window.addEventListener('online', (e) => {
+    console.log('online');
+  });
+  
+
 Vue.createApp({
     data() {
       return{ 
@@ -89,6 +105,8 @@ Vue.createApp({
             inputText.focus()
             inputText.setSelectionRange(0, length)
 
+            
+
             if (e === 'reset') {
                 this.displayInput = ''
                 this.ans = ''
@@ -104,18 +122,25 @@ Vue.createApp({
 
                 this.displayInput += e
             }
+
+            
           },
           
           keyDisable(e){
                 e.disabled
-                console.log(e)
                 e.preventDefault();
                 e.stopPropagation();
           }
                   
     },
     
-    watch:{},
+    watch:{
+        displayInput(n,o){
+            if (n !== '=') {
+                this.ans = ''
+            }
+        }
+    },
     computed:{
                     
       }           

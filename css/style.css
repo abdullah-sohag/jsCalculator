@@ -1,6 +1,6 @@
 :root{
     --primary-font: "Nunito", sans-serif;
-    --lato: "Lato", sans-serif;
+   
     --primary-color: #eae3db;
     --secondary-color: #a6a4a4;
     --accent-color: #1f2639;
@@ -139,7 +139,7 @@ body{
 }
 .calculator-body{
     width: 350px;
-    height: 500px;
+    height: 360px;
     overflow: hidden;
 }
 
@@ -150,6 +150,7 @@ body{
     overflow-x: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    font-family: var(--primary-font);
 }
 .calculator-display::-webkit-scrollbar{
     display: none;
@@ -160,6 +161,7 @@ body{
     margin-right: 2px;
     padding-right: 2px;
     overflow-x: scroll;
+    font-family: var(--primary-font);
 }
 #input:focus{
     border: none;
