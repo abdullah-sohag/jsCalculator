@@ -82,6 +82,7 @@ Vue.createApp({
         ],
         ans:'',
         displayInput:'',
+        theInputText:false,
         regexMob:/Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i,
        }    
          },
@@ -140,8 +141,8 @@ Vue.createApp({
       },
     mounted(){
         // dectade mobile or pc
-        let theInputText = document.querySelector('#input')
-        theInputText.disabled =  this.isMobile() || this.hasTouchSupport()
+       // let theInputText = document.querySelector('#input')
+        this.theInputText.disabled =  this.isMobile() || this.hasTouchSupport()
         // dectade mobile or pc
         
         // online detaced
