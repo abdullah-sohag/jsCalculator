@@ -45,7 +45,7 @@
        <!-- display -->
        <div class="calculator-display w-100 rounded text-end d-flex flex-column justify-content-center p-2">
 
-        <input type="text" class="fs-24 text-end bg-transparent border-0 pe-2" v-model="displayInput" id="input" @click="keyDisable" @focus="keyDisable">
+        <input type="text" class="fs-24 text-end bg-transparent border-0 pe-2" v-model="displayInput" id="input" @click="keyDisable" @focus="keyDisable" :disabled="theInputText">
         
         <h6 class="fs-26 primary-font" v-if="ans" >{{ans}}</h6>
        </div>
